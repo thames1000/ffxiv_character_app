@@ -41,6 +41,7 @@ def character_by_name(name):
 class Character():
     def __init__(self, data):
         self.data = data
+        self.canvas_list = []
         
     def write_to_file(self, filename):
         with open(filename, "w") as outfile:
