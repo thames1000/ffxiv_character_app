@@ -104,7 +104,7 @@ def main():
     mommy = ff_functions.Character(data)
     # Create the master object
     master = tk.Tk()
-    bg_photo = ImageTk.PhotoImage(file = "background.jpeg")
+    bg_photo = ImageTk.PhotoImage(file = "sample.jpg")
     bg_label = tk.Label(master, image = bg_photo)
     bg_label.place(x=0, y=0, relwidth=1, relheight=1)
     # Create the label objects and pack them using grid
