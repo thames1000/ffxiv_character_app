@@ -39,12 +39,17 @@ def pull_data_name(character, entry_value):
     character.data = data
     print(character.data["Character"]["Name"])
 
-def getter(widget, filename):
-    x=widget.winfo_rootx()+widget.winfo_x()
-    y=widget.winfo_rooty()+widget.winfo_y()
-    x1=x+widget.winfo_width()
-    y1=y+widget.winfo_height()
-    ImageGrab.grab().crop((x,y,x1,y1)).save(filename)
+
+def getter(widget, portrait, filename):
+    x = portrait.winfo_rootx() + 2
+    y = portrait.winfo_rooty() + 15
+    print(x, y)
+    x1 = x + widget.winfo_rootx() + widget.winfo_width()+220
+    y1 = y + 660
+
+    print(x1, y1)
+    ImageGrab.grab().crop((x, y, x1, y1)).save(filename)
+
 
 def display_info(character, master):
     clear_canvas(character.canvas_list)
@@ -56,8 +61,8 @@ def display_info(character, master):
     im = im.resize((420, 540), Image.Resampling.LANCZOS)
     image = ImageTk.PhotoImage(im)
     character.portrait = image
-    label1 = tk.Label(master, image=character.portrait, borderwidth=0)
-    label1.grid(row=1, sticky=tk.W, rowspan=16, columnspan=COL)
+    portrait = tk.Label(master, image=character.portrait, borderwidth=0)
+    portrait.grid(row=1, sticky=tk.W, rowspan=16, columnspan=COL)
     row = 1
     character.icons = []
     for index, value in enumerate(character.all_classes_and_jobs):
@@ -115,13 +120,17 @@ def display_info(character, master):
         row += 2
         if row == 5:
             row += 1
-    button = tk.Button(master, text = "Export", command = lambda:getter(master,"Mommy_Thames.jpeg")).grid(row=row, column=COL+9)
+    button = tk.Button(master, text="Export", command=lambda: getter(
+        button, portrait, "Mommy_Thames.jpeg"))
+    button.grid(row=row+1, column=COL+9)
+
 
 def main():
     data = None
     mommy = ff_functions.Character(data)
     # Create the master object
     master = tk.Tk()
+    master.geometry("+0+0")
     bg_photo = ImageTk.PhotoImage(file="sample.jpg")
     bg_label = tk.Label(master, image=bg_photo)
     bg_label.place(x=0, y=0, relwidth=1, relheight=1)
