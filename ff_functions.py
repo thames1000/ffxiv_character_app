@@ -118,11 +118,3 @@ class Character():
             if row == 5:
                 print("\n")
                 row+=1
-
-
-if __name__ == "__main__":
-    data = character_by_id(44250261)
-    mommy = Character(data)
-    mommy.write_to_file("Mommy_Thames.json")
-    mommy.get_class_job_levels()
-    # print(mommy.level_dict)
