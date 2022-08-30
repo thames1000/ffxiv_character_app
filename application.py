@@ -128,7 +128,7 @@ def display_info(character, master):
             row += 1
     picture_name = character.data["Character"]["Name"].replace(" ", "_")
     button = tk.Button(master, text="Export", bg=DARK_BLUE, fg="YELLOW",
-                       command=lambda: getter(button, portrait, f"{picture_name}.jpeg"))
+                       command=lambda: getter(button, portrait, f"characters/{picture_name}.jpeg"))
     button.grid(row=row+1, column=COL+9)
 
 
