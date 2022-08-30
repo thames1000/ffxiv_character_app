@@ -91,9 +91,10 @@ class Character():
             self.level_dict[i] = '--'
         df1 = pd.DataFrame(self.data["Character"]["ClassJobs"])
         for index, row in df1.iterrows():
-            self.level_dict[self.class_id_in_order[row["ClassID"]-1]] = row["Level"]
-            if row["ClassID"] != row["JobID"]:
-                self.level_dict[self.class_id_in_order[row["UnlockedState"]["ID"]-1]] = row["Level"]
+            if row["Level"] != 0:
+                self.level_dict[self.class_id_in_order[row["ClassID"]-1]] = row["Level"]
+                if row["ClassID"] != row["JobID"]:
+                    self.level_dict[self.class_id_in_order[row["UnlockedState"]["ID"]-1]] = row["Level"]
                 
     def print_class_levels(self):
         row = 0

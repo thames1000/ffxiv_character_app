@@ -17,7 +17,13 @@ except ModuleNotFoundError:
     import win32con
     import win32gui
 
-
+# try:
+#     import tkFont as tkfont
+# except ModuleNotFoundError:
+#     os.system(pip_format_string.format("tkFont"))
+#     import tkFont as tkfont
+    
+    
 COL = 21
 DARK_BLUE = "#192841"
 TRANSPARENT = "#ab23ff"
@@ -44,7 +50,7 @@ def getter(widget, portrait, filename):
     x = portrait.winfo_rootx() + 2
     y = portrait.winfo_rooty() + 15
     print(x, y)
-    x1 = x + widget.winfo_rootx() + widget.winfo_width()+220
+    x1 = x + widget.winfo_rootx() + widget.winfo_width()+195
     y1 = y + 660
 
     print(x1, y1)
@@ -113,15 +119,16 @@ def display_info(character, master):
                 text.config(bg="#000000")
 
                 text.create_text(15, 15, text=f"{character.level_dict[each]:02}", font=(
-                    "Courier New", 18), fill="YELLOW")
+                    "Courier New", 19, "bold"), fill="#dbc300")
                 text.grid(row=row+1, column=col)
                 character.canvas_list.append(text)
                 col += 1
         row += 2
         if row == 5:
             row += 1
-    button = tk.Button(master, text="Export", command=lambda: getter(
-        button, portrait, "Mommy_Thames.jpeg"))
+    picture_name = character.data["Character"]["Name"].replace(" ", "_")
+    button = tk.Button(master, text="Export", bg=DARK_BLUE, fg="YELLOW",
+                       command=lambda: getter(button, portrait, f"{picture_name}.jpeg"))
     button.grid(row=row+1, column=COL+9)
 
 
