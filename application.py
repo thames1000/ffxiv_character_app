@@ -50,7 +50,7 @@ def getter(widget, portrait, filename):
     x = portrait.winfo_rootx() + 2
     y = portrait.winfo_rooty() + 15
     print(x, y)
-    x1 = x + widget.winfo_rootx() + widget.winfo_width()+195
+    x1 = x + widget.winfo_rootx() + widget.winfo_width()+200
     y1 = y + 660
 
     print(x1, y1)
@@ -137,6 +137,7 @@ def main():
     mommy = ff_functions.Character(data)
     # Create the master object
     master = tk.Tk()
+    master.overrideredirect(True)
     master.geometry("+0+0")
     bg_photo = ImageTk.PhotoImage(file="sample.jpg")
     bg_label = tk.Label(master, image=bg_photo)
@@ -160,6 +161,9 @@ def main():
     display_button = tk.Button(master, text="Display", bg=DARK_BLUE,
                                fg="YELLOW", command=lambda: display_info(mommy, master))
     display_button.grid(row=0, column=7)
+    display_button = tk.Button(master, text="X", bg=DARK_BLUE,
+                               fg="YELLOW", command=lambda:master.destroy())
+    display_button.grid(row=0, column=COL+9, sticky="E")
     # The mainloop
     tk.mainloop()
 
