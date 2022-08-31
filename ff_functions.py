@@ -2,7 +2,7 @@ import os
 from urllib.request import Request, urlopen
 import json
 PIP = "pip install {}"
-
+DROP_DOWN_DEFAULT = "*Optional* Server"
 try:
     import pyxivapi
 except ModuleNotFoundError:
@@ -21,6 +21,26 @@ except ModuleNotFoundError:
     os.system(PIP.format("pillow"))
     from PIL import Image, ImageTk
 
+SERVERS_LIST = ["Adamantoise","Aegis","Alexander","Anima","Asura","Atomos",
+                "Bahamut","Balmung","Behemoth","Belias","Brynhildr","Cactuar",
+                "Carbuncle","Cerberus","Chocobo","Coeurl","Diabolos",
+                "Durandal","Excalibur","Exodus","Faerie","Famfrit","Fenrir",
+                "Garuda","Gilgamesh","Goblin","Gungnir","Hades","Hyperion",
+                "Ifrit","Ixion","Jenova","Kujata","Lamia","Leviathan","Lich",
+                "Louisoix","Malboro","Mandragora","Masamune","Mateus",
+                "Midgardsormr","Moogle","Odin","Omega","Pandaemonium",
+                "Phoenix","Ragnarok","Ramuh","Ridill","Sargatanas","Shinryu",
+                "Shiva","Siren","Tiamat","Titan","Tonberry","Typhon","Ultima",
+                "Ultros","Unicorn","Valefor","Yojimbo","Zalera","Zeromus",
+                "Zodiark","Spriggan","Twintania","Bismarck","Ravana",
+                "Sephirot","Sophia","Zurvan","HongYuHai","ShenYiZhiDi",
+                "LaNuoXiYa","HuanYingQunDao","MengYaChi","YuZhouHeYin",
+                "WoXianXiRan","ChenXiWangZuo","BaiYinXiang","BaiJinHuanXiang",
+                "ShenQuanHen","ChaoFengTing","LvRenZhanQiao","FuXiaoZhiJian",
+                "Longchaoshendian","MengYuBaoJing","ZiShuiZhanQiao","YanXia",
+                "JingYuZhuangYuan","MoDuNa","HaiMaoChaWu","RouFengHaiWan",
+                "HuPoYuan","ShuiJingTa2","YinLeiHu2","TaiYangHaiAn2","YiXiuJiaDe2",
+                "HongChaChuan2","Alpha","Phantom","Raiden","Sagittarius"]
 
 def character_by_id(id):
     request = Request("https://xivapi.com/character/{}".format(id))
@@ -28,9 +48,11 @@ def character_by_id(id):
     data = json.loads(urlopen(request).read())
     return data
 
-def character_by_name(name):
-    request = Request("https://xivapi.com/character/search?name={}"
-                      .format(name.replace(" ","+")))
+def character_by_name(name, server):
+    request = Request("https://xivapi.com/character/search?name={}{}{}"
+                      .format(name.replace(" ","+"),"" if server.get() == DROP_DOWN_DEFAULT
+                              else "&server=",server.get() if server.get() != DROP_DOWN_DEFAULT
+                              else ""))
     request.add_header('User-Agent', '&lt;User-Agent&gt;')
     data = json.loads(urlopen(request).read())
     id = (data["Results"][0]["ID"])
