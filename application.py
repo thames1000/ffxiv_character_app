@@ -2,7 +2,6 @@ import io
 import os
 import tkinter as tk
 import urllib
-
 from PIL import Image, ImageTk, ImageGrab
 
 import ff_functions as ff_functions
@@ -17,12 +16,12 @@ except ModuleNotFoundError:
     import win32con
     import win32gui
 
-# try:
-#     import tkFont as tkfont
-# except ModuleNotFoundError:
-#     os.system(pip_format_string.format("tkFont"))
-#     import tkFont as tkfont
-    
+try:
+    import pyautogui
+except ModuleNotFoundError:
+    os.system(pip_format_string.format("pyautogui"))
+    import pyautogui
+
     
 COL = 21
 DARK_BLUE = "#192841"
@@ -46,15 +45,10 @@ def pull_data_name(character, entry_value):
     print(character.data["Character"]["Name"])
 
 
-def getter(widget, portrait, filename):
-    x = portrait.winfo_rootx()
-    y = portrait.winfo_rooty()
-    print(x, y)
-    x1 = x + widget.winfo_rootx() + widget.winfo_width()
-    y1 = y + portrait.winfo_height()
-
-    print(x1, y1)
-    ImageGrab.grab().crop((x, y, x1, y1)).save(filename)
+def getter(widget, filename):
+    x, y = widget.winfo_rootx(), widget.winfo_rooty()
+    w, h = widget.winfo_width(), widget.winfo_height()
+    pyautogui.screenshot(filename, region=(x, y+35, w, h-70))
 
 
 def display_info(character, master):
@@ -67,9 +61,10 @@ def display_info(character, master):
     im = im.resize((420, 540), Image.Resampling.LANCZOS)
     image = ImageTk.PhotoImage(im)
     character.portrait = image
-    portrait = tk.Label(master, image=character.portrait, borderwidth=0)
+    portrait = tk.Label(master, image=character.portrait, borderwidth=1)
     portrait.grid(row=1, sticky=tk.W, rowspan=16, columnspan=COL)
     row = 1
+    character.canvas_list.append(portrait)
     character.icons = []
     for index, value in enumerate(character.all_classes_and_jobs):
         col = COL
@@ -119,7 +114,7 @@ def display_info(character, master):
                 text.config(bg="#000000")
 
                 text.create_text(15, 15, text=f"{character.level_dict[each]:02}", font=(
-                    "Courier New", 19, "bold"), fill="#dbc300")
+                    "Courier New", 17, "bold"), fill="#dbc300")
                 text.grid(row=row+1, column=col)
                 character.canvas_list.append(text)
                 col += 1
@@ -127,9 +122,10 @@ def display_info(character, master):
         if row == 5:
             row += 1
     picture_name = character.data["Character"]["Name"].replace(" ", "_")
-    button = tk.Button(master, text="Export", bg=DARK_BLUE, fg="YELLOW",
-                       command=lambda: getter(button, portrait, f"characters/{picture_name}.jpeg"))
-    button.grid(row=row+1, column=COL+9)
+    button = tk.Button(master, text=f"Export to characters/{picture_name}.jpeg", bg=DARK_BLUE, fg="YELLOW",
+                       command=lambda: getter(master, f"characters/{picture_name}.jpeg"))
+    button.grid(row=row+1, column=COL+1, columnspan=9)
+    character.canvas_list.append(button)
 
 
 def main():
@@ -137,7 +133,7 @@ def main():
     mommy = ff_functions.Character(data)
     # Create the master object
     master = tk.Tk()
-    master.overrideredirect(True)
+    master.title("FFXIV Character Sheet")
     master.geometry("+0+0")
     bg_photo = ImageTk.PhotoImage(file="sample.jpg")
     bg_label = tk.Label(master, image=bg_photo)
@@ -161,7 +157,7 @@ def main():
     display_button = tk.Button(master, text="Display", bg=DARK_BLUE,
                                fg="YELLOW", command=lambda: display_info(mommy, master))
     display_button.grid(row=0, column=7)
-    display_button = tk.Button(master, text="X", bg=DARK_BLUE,
+    display_button = tk.Button(master, text="Quit", bg=DARK_BLUE,
                                fg="YELLOW", command=lambda:master.destroy())
     display_button.grid(row=0, column=COL+9, sticky="E")
     # The mainloop
