@@ -4,7 +4,7 @@ import tkinter as tk
 import urllib
 from PIL import Image, ImageTk
 import ff_functions
-from ff_functions import PIP
+from ff_functions import PIP, SERVERS_LIST, DROP_DOWN_DEFAULT
 
 try:
     import win32api
@@ -48,8 +48,8 @@ def pull_data_id(character, entry_value):
     print(character.data["Character"]["Name"])
 
 
-def pull_data_name(character, entry_value):
-    data = ff_functions.character_by_name(entry_value)
+def pull_data_name(character, entry_value, server):
+    data = ff_functions.character_by_name(entry_value, server)
     character.data = data
     print(character.data["Character"]["Name"])
 
@@ -136,14 +136,19 @@ def main():
     # Pack them using grid
     e1.grid(row=0, column=1, columnspan=4)
 
+    clicked = tk.StringVar()
+    clicked.set(DROP_DOWN_DEFAULT)
     button1 = tk.Button(master, text="Name", bg=DARK_BLUE, fg="YELLOW",
-                        command=lambda: pull_data_name(mommy, e1.get()))
+                        command=lambda: pull_data_name(mommy, e1.get(), clicked))
     
     button2 = tk.Button(master, text="ID", bg=DARK_BLUE, fg="YELLOW",
-                        command=lambda: pull_data_id(mommy, e1.get()))
+                        command=lambda: pull_data_id(mommy, e1.get(), clicked))
     
     display_button = tk.Button(master, text="Display", bg=DARK_BLUE,
                                fg="YELLOW", command=lambda: display_info(mommy, master))
+    
+    server_dropdown = tk.OptionMenu(master,clicked,DROP_DOWN_DEFAULT,*SERVERS_LIST)
+    server_dropdown.config(bg=DARK_BLUE, fg="YELLOW", highlightthickness=0)
     quit_button = tk.Button(master, text="Quit", bg=DARK_BLUE,
                                fg="YELLOW", command=lambda:master.destroy())
     
@@ -162,6 +167,7 @@ def main():
     button2.grid(row=0, column=6)
     display_button.grid(row=0, column=7)
     quit_button.grid(row=0, column=COL+9, sticky="E")
+    server_dropdown.grid(row=0, column=8, columnspan = 3)
     # The mainloop
     tk.mainloop()
 
