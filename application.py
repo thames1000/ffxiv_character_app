@@ -47,11 +47,11 @@ def pull_data_name(character, entry_value):
 
 
 def getter(widget, portrait, filename):
-    x = portrait.winfo_rootx() + 2
-    y = portrait.winfo_rooty() + 15
+    x = portrait.winfo_rootx()
+    y = portrait.winfo_rooty()
     print(x, y)
-    x1 = x + widget.winfo_rootx() + widget.winfo_width()+200
-    y1 = y + 660
+    x1 = x + widget.winfo_rootx() + widget.winfo_width()
+    y1 = y + portrait.winfo_height()
 
     print(x1, y1)
     ImageGrab.grab().crop((x, y, x1, y1)).save(filename)
