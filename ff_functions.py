@@ -1,24 +1,24 @@
 import os
 from urllib.request import Request, urlopen
 import json
-pip_format_string = "pip install {}"
+PIP = "pip install {}"
 
 try:
     import pyxivapi
 except ModuleNotFoundError:
-    os.system(pip_format_string.format("pyxivapi"))
+    os.system(PIP.format("pyxivapi"))
     import pyxivapi
     
 try:
     import pandas as pd
 except ModuleNotFoundError:
-    os.system(pip_format_string.format("pandas"))
+    os.system(PIP.format("pandas"))
     import pandas as pd
 
 try:
     from PIL import Image, ImageTk
 except ModuleNotFoundError:
-    os.system(pip_format_string.format("pillow"))
+    os.system(PIP.format("pillow"))
     from PIL import Image, ImageTk
 
 
