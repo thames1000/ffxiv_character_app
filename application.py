@@ -167,7 +167,7 @@ def main():
     button2.grid(row=0, column=6)
     display_button.grid(row=0, column=7)
     quit_button.grid(row=0, column=COL+9, sticky="E")
-    server_dropdown.grid(row=0, column=8, columnspan = 3)
+    server_dropdown.grid(row=0, column=8, columnspan = COL+1, sticky="w")
     # The mainloop
     tk.mainloop()
 
