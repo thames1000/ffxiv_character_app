@@ -1,0 +1,141 @@
+{
+    "Character Name": "Momma Moose",
+    "Character ID": "44699813",
+    "World Name": "Brynhildr [Crystal]",
+    "Free Company": "Cozy Cottage Crew",
+    "Character Image": "https://img2.finalfantasyxiv.com/f/6b9143c27d810330f2603622c90090b4_d0a0f515a62457570c9b44997063e3c1fl0.jpg?1732937801",
+    "Levels": {
+        "Paladin": {
+            "Level": "100",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/E/d0Tx-vhnsMYfYpGe9MvslemEfg.png"
+        },
+        "Marauder": {
+            "Level": "1",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/N/St9rjDJB3xNKGYg-vwooZ4j6CM.png"
+        },
+        "Dark Knight": {
+            "Level": "30",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/l/5CZEvDOMYMyVn2td9LZigsgw9s.png"
+        },
+        "Gunbreaker": {
+            "Level": "61",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/8/hg8ofSSOKzqng290No55trV4mI.png"
+        },
+        "Conjurer": {
+            "Level": "-",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/s/gl62VOTBJrm7D_BmAZITngUEM8.png"
+        },
+        "Scholar": {
+            "Level": "-",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/7/WdFey0jyHn9Nnt1Qnm-J3yTg5s.png"
+        },
+        "Astrologian": {
+            "Level": "-",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/1/erCgjnMSiab4LiHpWxVc-tXAqk.png"
+        },
+        "Sage": {
+            "Level": "71",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/g/_oYApASVVReLLmsokuCJGkEpk0.png"
+        },
+        "Pugilist": {
+            "Level": "1",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/V/iW7IBKQ7oglB9jmbn6LwdZXkWw.png"
+        },
+        "Lancer": {
+            "Level": "-",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/k/tYTpoSwFLuGYGDJMff8GEFuDQs.png"
+        },
+        "Rogue": {
+            "Level": "-",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/y/wdwVVcptybfgSruoh8R344y_GA.png"
+        },
+        "Samurai": {
+            "Level": "52",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/m/KndG72XtCFwaq1I1iqwcmO_0zc.png"
+        },
+        "Reaper": {
+            "Level": "70",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/7/cLlXUaeMPJDM2nBhIeM-uDmPzM.png"
+        },
+        "Viper": {
+            "Level": "80",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/C/WojNTqMJ_Ye1twvkIhw825zc20.png"
+        },
+        "Archer": {
+            "Level": "-",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/Q/ZpqEJWYHj9SvHGuV9cIyRNnIkk.png"
+        },
+        "Machinist": {
+            "Level": "30",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/E/vmtbIlf6Uv8rVp2YFCWA25X0dc.png"
+        },
+        "Dancer": {
+            "Level": "62",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/t/HK0jQ1y7YV9qm30cxGOVev6Cck.png"
+        },
+        "Thaumaturge": {
+            "Level": "1",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/4/IM3PoP6p06GqEyReygdhZNh7fU.png"
+        },
+        "Arcanist": {
+            "Level": "-",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/e/VYP1LKTDpt8uJVvUT7OKrXNL9E.png"
+        },
+        "Red Mage": {
+            "Level": "56",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/q/s3MlLUKmRAHy0pH57PnFStHmIw.png"
+        },
+        "Pictomancer": {
+            "Level": "-",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/_/kLob-U-yh652LQPX1NHpLlUYQY.png"
+        },
+        "Blue Mage": {
+            "Level": "1",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/p/jdV3RRKtWzgo226CC09vjen5sk.png"
+        },
+        "Carpenter": {
+            "Level": "100",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/v/YCN6F-xiXf03Ts3pXoBihh2OBk.png"
+        },
+        "Blacksmith": {
+            "Level": "58",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/5/EEHVV5cIPkOZ6v5ALaoN5XSVRU.png"
+        },
+        "Armorer": {
+            "Level": "55",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/G/Rq5wcK3IPEaAB8N-T9l6tBPxCY.png"
+        },
+        "Goldsmith": {
+            "Level": "56",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/L/LbEjgw0cwO_2gQSmhta9z03pjM.png"
+        },
+        "Leatherworker": {
+            "Level": "50",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/b/ACAcQe3hWFxbWRVPqxKj_MzDiY.png"
+        },
+        "Weaver": {
+            "Level": "47",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/X/E69jrsOMGFvFpCX87F5wqgT_Vo.png"
+        },
+        "Alchemist": {
+            "Level": "46",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/C/bBVQ9IFeXqjEdpuIxmKvSkqalE.png"
+        },
+        "Culinarian": {
+            "Level": "26",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/m/1kMI2v_KEVgo30RFvdFCyySkFo.png"
+        },
+        "Miner": {
+            "Level": "37",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/A/aM2Dd6Vo4HW_UGasK7tLuZ6fu4.png"
+        },
+        "Botanist": {
+            "Level": "43",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/I/jGRnjIlwWridqM-mIPNew6bhHM.png"
+        },
+        "Fisher": {
+            "Level": "29",
+            "Icon": "https://lds-img.finalfantasyxiv.com/h/x/B4Azydbn7Prubxt7OL9p1LZXZ0.png"
+        }
+    }
+}
